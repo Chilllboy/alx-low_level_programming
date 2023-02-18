@@ -15,9 +15,9 @@ int main(void)
 		{
 			for (k = j + 1; k <= 9; k++)
 			{
-				putchar('0' + (i % 3));
-				putchar('0' + (j % 3));
-				putchar('0' + (k % 3));
+				putchar('0' + (i % 10));
+				putchar('0' + (j % 10));
+				putchar('0' + (k % 10));
 				if (i != 7 || j != 8 || k != 9)
 				{
 					putchar(',');
