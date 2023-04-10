@@ -2,15 +2,14 @@
 
 /**
  * binary_to_uint - converts binary number to unsigned int
- * @b: string containing 1's and 0's
- * Descreption: by (chilljoy)
+ * @b: string containing 1's and 0's (binary number)
  *
  * Return: converted numbrer (Success) | 0 (Failure)
  */
 unsigned int binary_to_uint(const char *b)
 {
 	int i;
-	unsigned int x, y;
+	unsigned int uint, pow;
 
 	if (!b)
 		return (0);
@@ -21,10 +20,10 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 		i++;
 	}
-	--i, x = 0, y = 0;
+	--i, uint = 0, pow = 0;
 	while (i >= 0)
 	{
-		x += (b[i--] - 48) << (y++);
+		uint += (b[i--] - 48) << (pow++);
 	}
-	return (x);
+	return (uint);
 }
