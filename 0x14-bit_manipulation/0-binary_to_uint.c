@@ -9,22 +9,29 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	int i;
-	unsigned int chill, joy;
+	unsigned int chill;
+	int len, base_two;
 
 	if (!b)
 		return (0);
-	i = 0;
-	while (b[i])
+
+	chill = 0;
+
+	for (len = 0; b[len] != '\0'; len++)
+		;
+
+	for (len--, base_two = 1; len >= 0; len--, base_two *= 2)
 	{
-		if (b[i] != '0' && b[i] != '1')
+		if (b[len] != '0' && b[len] != '1')
+		{
 			return (0);
-		i++;
+		}
+
+		if (b[len] & 1)
+		{
+			chill += base_two;
+		}
 	}
-	--i, chill = 0, joy = 0;
-	while (i >= 0)
-	{
-		chill += (b[i--] - 48) << (joy++);
-	}
+
 	return (chill);
 }
