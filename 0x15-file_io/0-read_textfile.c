@@ -1,28 +1,28 @@
 #include "main.h"
 
 /**
- * read_textfile - reads and prints text from a file to stdout
- * @filename: the name of the file
- * @letters: number of letters to be read and printed
+ * read_textfile - reads and prits txt from a file to stdout
+ * @filename: the name of the file (chilljoy)
+ * @letters: number of letters to be read printed
  *
- * Return: actual number of read and printed letters
+ * Return: actual number of read and prited letters
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd;
+	int x;
 	char *s;
 	ssize_t rsize, wsize;
 
 	if (!filename)
 		return (0);
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
+	x = open(filename, O_RDONLY);
+	if (x < 0)
 		return (0);
 
 	s = malloc(sizeof(char) * letters);
 	if (!s)
 		return (0);
-	rsize = read(fd, s, letters);
+	rsize = read(x, s, letters);
 	if (rsize < 0)
 	{
 		free(s);
@@ -30,7 +30,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 
 	s[rsize] = '\0';
-	close(fd);
+	close(x);
 
 	wsize = write(STDOUT_FILENO, s, rsize);
 	if (wsize < 0)
